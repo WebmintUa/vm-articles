@@ -10,24 +10,26 @@
 </template>
 
 <script>
+import fetchMixin from '@/mixins/fetchMixin';
+
 export default {
   name: 'ArticleSingle',
+  mixins: [fetchMixin],
   data() {
     return {
       post: null,
     };
   },
   watch: {
-    // call again the method if the route changes
     $route: () => {
-      this.$axios.fetchPost(this.$route.params.id)
+      this.$articlesAxios.fetchPost(this.$route.params.id)
         .then(({ data }) => {
           this.post = data;
         });
     },
   },
   created() {
-    this.$axios.fetchPost(this.$route.params.id)
+    this.$articlesAxios.fetchPost(this.$route.params.id)
       .then(({ data }) => {
         this.post = data;
       });

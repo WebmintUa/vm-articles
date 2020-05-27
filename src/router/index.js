@@ -1,20 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import routes from './routes';
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: '/articles',
-    name: 'articles-list',
-    component: () => import('@/components/ArticlesList'),
-  },
-  {
-    path: '/articles/:id',
-    name: 'article-single',
-    component: () => import('@/components/ArticleSingle'),
-  },
-];
 
 const router = new VueRouter({
   mode: 'history',

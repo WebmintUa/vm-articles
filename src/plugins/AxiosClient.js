@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class AxiosClient {
   constructor() {
     this.client = axios.create({
-      baseURL: 'http://jsonplaceholder.typicode.com/',
+      baseURL: 'http://localhost:4000/',
     });
   }
 

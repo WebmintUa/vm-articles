@@ -19,15 +19,18 @@
 </template>
 
 <script>
+import fetchMixin from '@/mixins/fetchMixin';
+
 export default {
   name: 'ArticlesList',
+  mixins: [fetchMixin],
   data() {
     return {
       posts: [],
     };
   },
   created() {
-    this.$axios.fetchPosts()
+    this.$articlesAxios.fetchPosts()
       .then(({ data }) => {
         this.posts = data;
       });
